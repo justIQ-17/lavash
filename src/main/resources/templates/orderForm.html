@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html
+        lang="en"
+        xmalns="http://www.w3.org/1999/xhtml"
+        xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lavashxona</title>
+</head>
+<body>
+<form method="POST" th:action="@{/orders}" th:object="${lavashOrder}">
+    <h1>Order your created lavashs!!!</h1>
+    <h3><a th:href="@{/design}" id="another">Design your another lavash</a></h3>
+    <h3>Deliver my lavash to:</h3>
+    <label for="deliveryName">Name</label>
+    <input type="text" id="deliveryName" th:field="*{deliveryName}"/>
+    <span class="validationError"
+          th:if="${#fields.hasErrors('deliveryName')}"
+          th:errors="*{deliveryName}">deliveryName Error</span>
+    <br>
+
+    <label for="deliveryHomeNumber">Home Number</label>
+    <input type="text" id="deliveryHomeNumber" th:field="*{deliveryHomeNumber}"/>
+    <span class="validationError"
+          th:if="${#fields.hasErrors('deliveryHomeNumber')}"
+          th:errors="*{deliveryHomeNumber}">deliveryHomeNumber Error</span>
+    <br>
+
+    <label for="deliveryStreet">Street</label>
+    <input type="text" id="deliveryStreet" th:field="*{deliveryStreet}"/>
+    <span class="validationError"
+          th:if="${#fields.hasErrors('deliveryStreet')}"
+          th:errors="*{deliveryStreet}">deliveryStreet Error</span>
+    <br>
+
+    <label for="deliveryDistrict">District</label>
+    <input type="text" id="deliveryDistrict" th:field="*{deliveryDistrict}"/>
+    <span class="validationError"
+          th:if="${#fields.hasErrors('deliveryDistrict')}"
+          th:errors="*{deliveryDistrict}">deliveryDistrict Error</span>
+    <br>
+
+    <h3>Payment method:</h3>
+    <label for="ccNumber">Card Number</label>
+    <input type="text" id="ccNumber" th:field="*{ccNumber}"/>
+    <span class="validationError"
+          th:if="${#fields.hasErrors('ccNumber')}"
+          th:errors="*{ccNumber}">ccNumber Error</span>
+    <br>
+
+    <label for="ccExpiration">Expiration Date</label>
+    <input type="text" id="ccExpiration" th:field="*{ccExpiration}"/>
+    <span class="validationError"
+          th:if="${#fields.hasErrors('ccExpiration')}"
+          th:errors="*{ccExpiration}">ccExpiration Error</span>
+    <br>
+
+    <input type="submit" value="Submit Order"/>
+
+</form>
+
+</body>
+</html>
